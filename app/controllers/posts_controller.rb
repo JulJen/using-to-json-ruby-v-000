@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @author = Author.first_or_create(name: params[:post][:author])
     @post = Post.create(post_params)
     if @post.save
       redirect_to post_path(@post)
