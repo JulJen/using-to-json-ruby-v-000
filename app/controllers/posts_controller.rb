@@ -19,8 +19,9 @@ class PostsController < ApplicationController
 
   def create
     @author = Author.first_or_create(name: params[:post][:author])
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     if @post.save
+      @post.author = @author
       redirect_to post_path(@post)
     else
       render :new
