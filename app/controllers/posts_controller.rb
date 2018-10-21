@@ -11,6 +11,7 @@ class PostsController < ApplicationController
       format.html { render :show }
       format.json { render json: @post }
     end
+binding.pry
   end
 
   def new
